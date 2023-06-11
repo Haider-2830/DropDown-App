@@ -81,7 +81,28 @@ class DropDownScreenState extends State<DropDownScreen> {
             height: 30,
           ),
           // This is the second dropdown list in flutter
-
+          Padding (
+            padding: const EdgeInsets.all(20.0),
+            child: DropdownButtonFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.purple,width: 2)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.orange,width: 2)),
+                ),
+                hint: const Text(" Select Name"),
+                items: secondName
+                    .map((a) => DropdownMenuItem(
+                  value: a,
+                  child: Text(a),
+                ))
+                    .toList(),
+                onChanged: (val2) {
+                  setState(() {
+                    secondValue = val2 as String;
+                  });
+                }),
+          ),
         ],
       ),
     );
