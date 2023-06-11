@@ -1,0 +1,26 @@
+ [
+  {
+    "Name" : "Haider Ali",
+    "Age" : "20",
+    "Gender" : " Male ",
+    "Dept" : " Computer "
+  },
+  {
+    "Name" : "Hassan Ali",
+    "Age" : "23",
+    "Gender" : " Male ",
+    "Dept" : " Zoology "
+  },
+  {
+    "Name" : "Ansa Qurban",
+    "Age" : "18",
+    "Gender" : " Female ",
+    "Dept" : " Computer  "
+  },
+   {
+     "Name" : "Zarina Akram",
+     "Age" : "21",
+     "Gender" : " Female ",
+     "Dept" : " Computer  "
+   }
+]
