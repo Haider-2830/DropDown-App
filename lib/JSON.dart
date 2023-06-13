@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("CodePur (JSON files)"),
+          title: const Text("CodePur (JSON files )"),
         ),
         body: FutureBuilder(
           future: DefaultAssetBundle.of(context).loadString("json/person.json"),

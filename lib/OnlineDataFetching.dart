@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'splashScreen.dart';
@@ -30,7 +31,7 @@ class FirstHomePage extends StatefulWidget {
 }
 
 class FirstHomePageState extends State<FirstHomePage> {
-  final String url = " ";
+  final String url = " https://swapi.co/api/people ";
   List ? data ;
   @override
   void initState() {
@@ -41,8 +42,12 @@ class FirstHomePageState extends State<FirstHomePage> {
     var result = await http.get(
       Uri.encodeFull(url) as Uri,
       headers  : {"Accept" : "application/json"},
-    );
-    return " Accept ";
+    ); // get close here
+    setState(() async {
+      var convertData = jsonDecode(result.body);
+      data  = convertData['results'];
+    });
+    return " Success ";
   }
   @override
   Widget build(BuildContext context) {
@@ -50,11 +55,21 @@ class FirstHomePageState extends State<FirstHomePage> {
         appBar: AppBar(
           title: const Text("CodePur (online fetching data)"),
         ),
-        body: Container(
-          height: 300,
-          width: 300,
-          color: Colors.red,
-        ),
+        body: ListView.builder(
+          itemCount: data?.length,
+          itemBuilder: (context, index) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Card(
+                child:  Container(
+                  padding:const EdgeInsets.all(10),
+                  child: Text(data![index]['name']),
+                ),
+              )
+            ],
+          );
+        },)
     );
   }
 }
